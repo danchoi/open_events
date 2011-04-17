@@ -19,9 +19,11 @@ class Brattle < EventScraper
            else
              @res.last && @res.last[:date]
            end
+    time = (x = node.at('li/text()')) && x.text.strip
     link = node.at('.entry-title a')['href']
     { 
       date: date,
+      time: time,
       title: node.at('.entry-title').inner_text,
       link: link 
     }
