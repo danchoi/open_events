@@ -13,33 +13,20 @@ class Brattle < EventScraper
     doc.at('#calendarframe').xpath('./div')
   end
 
-  def event(node)
-    date = if (x = node.at('.entry-meta'))
+  def event(n)
+    date = if (x = n.at('.entry-meta'))
              x.inner_text
            else
              @res.last && @res.last[:date]
            end
-    time = (x = node.at('li/text()')) && x.text.strip
-    link = node.at('.entry-title a')['href']
+    time = (x = n.at('li/text()')) && x.text.strip
+    link = n.at('.entry-title a')['href']
     { 
       date: date,
       time: time,
-      title: node.at('.entry-title').inner_text,
+      title: n.at('.entry-title').inner_text,
       link: link 
     }
   end
-
-
-  def parse_test
-    nodes.each {|n|
-      puts n.inner_html
-      puts n.inner_text.gsub(/\s{2,}/, ' ').strip
-      puts '-' * 80
-    }
-  end
-
 end
 
-if __FILE__ == $0
-  puts Brattle.new.parse
-end

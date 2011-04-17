@@ -1,5 +1,8 @@
 $LOAD_PATH.unshift('scrapers')
 
+# TODO use opt parse to output HTML fragments for interative development
+
+
 class Runner
   def initialize(venue)
     require venue
@@ -9,6 +12,7 @@ class Runner
     puts res
   end
 
+  # from active support
   def camelize(lower_case_and_underscored_word, first_letter_in_uppercase = true)
     if first_letter_in_uppercase
       lower_case_and_underscored_word.to_s.gsub(/\/(.?)/) { "::#{$1.upcase}" }.gsub(/(?:^|_)(.)/) { $1.upcase }

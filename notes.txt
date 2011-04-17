@@ -3,4 +3,7 @@ A curated simple event scraper for select Cambridge, MA places.
 
 Plus Sinatra app.
 
+Develop most the scrapers on the command line, then develop the Sinatra
+app.
+
 
