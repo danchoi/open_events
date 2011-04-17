@@ -1,0 +1,6 @@
+
+A curated simple event scraper for select Cambridge, MA places.
+
+Plus Sinatra app.
+
+
