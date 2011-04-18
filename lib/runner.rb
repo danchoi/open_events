@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift('scrapers')
+$LOAD_PATH.unshift('boston')
 
 # TODO use opt parse to output HTML fragments for interative development
 
