@@ -1,22 +1,27 @@
 require 'event_scraper'
 
-class Brattle < EventScraper
+class Booksmith < EventScraper
 
   def meta
     { 
-      title: 'Brattle Theater Special Events',
-      url: 'http://brattlefilm.org/category/calendar-2/special-events/',
-      # multiwords should be hyphenated
-      categories: %w(movies),
-      locations: %w(harvard-square)
+      title: 'Brookline Booksmith',
+      url: 'http://www.brooklinebooksmith.com/events/mainevent.html',
+      categories: %w(books speakers),
+      locations: %w(coolidge-corner)
     }
   end
 
   def nodes
-    doc.at('#calendarframe').xpath('./div')
+    doc.search('strong a').
+      select {|x| 
+        x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
+      map {|x| 
+        x.ancestors.detect {|y| y.name == 'tr'}
+      }
   end
 
   def event(n)
+    return n.inner_html
     date = if (x = n.at('.entry-meta'))
              x.inner_text
            else

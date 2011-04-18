@@ -8,7 +8,10 @@ class Runner
     require venue
     klass = camelize(venue)
     puts klass 
-    res = eval(klass).new.parse
+    parser = eval(klass).new
+    puts parser.meta.inspect
+    res = parser.parse
+
     puts res
   end
 
