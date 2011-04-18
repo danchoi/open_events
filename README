@@ -4,29 +4,29 @@ Description coming
 
 Example:
 
-    $ ruby -Ilib lib/runner.rb  brattle
+$ ruby -Ilib lib/runner.rb  brattle
 
-    {:title=>"Brattle Theater Special Events", :url=>"http://brattlefilm.org/category/calendar-2/special-events/", :categories=>["movies"], :locations=>["harvard-square"]}
-    {:date=>"Tue, Apr 26", :time=>"8:00* PM", :title=>"The DocYard: 12th and Delaware", :link=>"http://brattlefilm.org/2011/04/26/the-docyard-12th-and-delaware/"}
-    {:date=>"Fri, Apr 29", :time=>"7:00 PM", :title=>"Heaven + Earth + Joe Davis", :link=>"http://brattlefilm.org/2011/04/29/heaven-earth-joe-davis/"}
-    {:date=>"Fri, Apr 29", :time=>"9:30 PM", :title=>"The Troll Hunter", :link=>"http://brattlefilm.org/2011/04/29/the-troll-hunter/"}
-    {:date=>"Sat, Apr 30", :time=>"12:15 PM", :title=>"Cultures Of Resistance", :link=>"http://brattlefilm.org/2011/04/30/cultures-of-resistance/"}
-    {:date=>"Sat, Apr 30", :time=>"2:15 PM", :title=>"We Still Live Here", :link=>"http://brattlefilm.org/2011/04/30/we-still-live-here/"}
-    {:date=>"Sat, Apr 30", :time=>"4:45 PM", :title=>"Windfall", :link=>"http://brattlefilm.org/2011/04/30/windfall/"}
-    {:date=>"Sat, Apr 30", :time=>"7:15 PM", :title=>"The Future", :link=>"http://brattlefilm.org/2011/04/30/the-future/"}
-    {:date=>"Sat, Apr 30", :time=>"9:45 PM", :title=>"Beneath Contempt", :link=>"http://brattlefilm.org/2011/04/30/beneath-contempt/"}
-    {:date=>"Sun, May 1", :time=>"12:30 PM", :title=>"Crime After Crime", :link=>"http://brattlefilm.org/2011/05/01/crime-after-crime/"}
-    {:date=>"Sun, May 1", :time=>"3:00 PM", :title=>"If A Tree Falls: The Story Of The Earth Liberation Front", :link=>"http://brattlefilm.org/2011/05/01/if-a-tree-falls-the-story-of-the-earth-liberation-front/"}
-    {:date=>"Sun, May 1", :time=>"5:30 PM", :title=>"Project Nim", :link=>"http://brattlefilm.org/2011/05/01/project-nim/"}
-    {:date=>"Sun, May 1", :time=>"8:00 PM", :title=>"13 Assassins", :link=>"http://brattlefilm.org/2011/05/01/13-assassins/"}
-    {:date=>"Fri, May 6", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/06/boston-lgbt-film-festival/"}
-    {:date=>"Sat, May 7", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/07/boston-lgbt-film-festival-2/"}
-    {:date=>"Sun, May 8", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/08/boston-lgbt-film-festival-3/"}
-    {:date=>"Mon, May 9", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/09/boston-lgbt-film-festival-4/"}
-    {:date=>"Tue, May 10", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/10/boston-lgbt-film-festival-6/"}
-    {:date=>"Wed, May 11", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/11/boston-lgbt-film-festival-5/"}
-    {:date=>"Thu, May 12", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/12/boston-lgbt-film-festival-7/"}
-    {:date=>"Fri, May 13", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/13/boston-lgbt-film-festival-8/"}
-    {:date=>"Sat, May 14", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/14/boston-lgbt-film-festival-9/"}
-    [choi kaja~/p/love-cambridge]$
+{:title=>"Brattle Theater Special Events", :url=>"http://brattlefilm.org/category/calendar-2/special-events/", :categories=>["movies"], :locations=>["harvard-square"]}
+{:date=>"Tue, Apr 26", :time=>"8:00* PM", :title=>"The DocYard: 12th and Delaware", :link=>"http://brattlefilm.org/2011/04/26/the-docyard-12th-and-delaware/"}
+{:date=>"Fri, Apr 29", :time=>"7:00 PM", :title=>"Heaven + Earth + Joe Davis", :link=>"http://brattlefilm.org/2011/04/29/heaven-earth-joe-davis/"}
+{:date=>"Fri, Apr 29", :time=>"9:30 PM", :title=>"The Troll Hunter", :link=>"http://brattlefilm.org/2011/04/29/the-troll-hunter/"}
+{:date=>"Sat, Apr 30", :time=>"12:15 PM", :title=>"Cultures Of Resistance", :link=>"http://brattlefilm.org/2011/04/30/cultures-of-resistance/"}
+{:date=>"Sat, Apr 30", :time=>"2:15 PM", :title=>"We Still Live Here", :link=>"http://brattlefilm.org/2011/04/30/we-still-live-here/"}
+{:date=>"Sat, Apr 30", :time=>"4:45 PM", :title=>"Windfall", :link=>"http://brattlefilm.org/2011/04/30/windfall/"}
+{:date=>"Sat, Apr 30", :time=>"7:15 PM", :title=>"The Future", :link=>"http://brattlefilm.org/2011/04/30/the-future/"}
+{:date=>"Sat, Apr 30", :time=>"9:45 PM", :title=>"Beneath Contempt", :link=>"http://brattlefilm.org/2011/04/30/beneath-contempt/"}
+{:date=>"Sun, May 1", :time=>"12:30 PM", :title=>"Crime After Crime", :link=>"http://brattlefilm.org/2011/05/01/crime-after-crime/"}
+{:date=>"Sun, May 1", :time=>"3:00 PM", :title=>"If A Tree Falls: The Story Of The Earth Liberation Front", :link=>"http://brattlefilm.org/2011/05/01/if-a-tree-falls-the-story-of-the-earth-liberation-front/"}
+{:date=>"Sun, May 1", :time=>"5:30 PM", :title=>"Project Nim", :link=>"http://brattlefilm.org/2011/05/01/project-nim/"}
+{:date=>"Sun, May 1", :time=>"8:00 PM", :title=>"13 Assassins", :link=>"http://brattlefilm.org/2011/05/01/13-assassins/"}
+{:date=>"Fri, May 6", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/06/boston-lgbt-film-festival/"}
+{:date=>"Sat, May 7", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/07/boston-lgbt-film-festival-2/"}
+{:date=>"Sun, May 8", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/08/boston-lgbt-film-festival-3/"}
+{:date=>"Mon, May 9", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/09/boston-lgbt-film-festival-4/"}
+{:date=>"Tue, May 10", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/10/boston-lgbt-film-festival-6/"}
+{:date=>"Wed, May 11", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/11/boston-lgbt-film-festival-5/"}
+{:date=>"Thu, May 12", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/12/boston-lgbt-film-festival-7/"}
+{:date=>"Fri, May 13", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/13/boston-lgbt-film-festival-8/"}
+{:date=>"Sat, May 14", :time=>nil, :title=>"Boston LGBT Film Festival", :link=>"http://brattlefilm.org/2011/05/14/boston-lgbt-film-festival-9/"}
+[choi kaja~/p/love-cambridge]$
 
