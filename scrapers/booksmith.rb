@@ -2,7 +2,7 @@ require 'event_scraper'
 
 class Booksmith < EventScraper
 
-  def meta
+  def about
     { 
       title: 'Brookline Booksmith',
       url: 'http://www.brooklinebooksmith.com/events/mainevent.html',
@@ -16,8 +16,7 @@ class Booksmith < EventScraper
       select {|x| 
         x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
       map {|x| 
-        x.ancestors.detect {|y| y.name == 'tr'}
-      }
+        x.ancestors.detect {|y| y.name == 'tr'}}
   end
 
   def event(n)

@@ -9,7 +9,7 @@ class Runner
     klass = camelize(venue)
     puts klass 
     parser = eval(klass).new
-    puts parser.meta.inspect
+    puts parser.about.inspect
     res = parser.parse
 
     puts res

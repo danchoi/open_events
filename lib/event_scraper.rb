@@ -10,7 +10,7 @@ class EventScraper
   end
 
   def html
-    @html ||= cached_html(meta[:url])
+    @html ||= cached_html(about[:url])
   end
 
   def parse

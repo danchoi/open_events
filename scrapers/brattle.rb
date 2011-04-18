@@ -2,7 +2,7 @@ require 'event_scraper'
 
 class Brattle < EventScraper
 
-  def meta
+  def about
     { 
       title: 'Brattle Theater Special Events',
       url: 'http://brattlefilm.org/category/calendar-2/special-events/',
