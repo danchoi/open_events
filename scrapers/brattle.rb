@@ -6,7 +6,6 @@ class Brattle < EventScraper
     { 
       title: 'Brattle Theater Special Events',
       url: 'http://brattlefilm.org/category/calendar-2/special-events/',
-      # multiwords should be hyphenated
       categories: %w(movies),
       locations: %w(harvard-square)
     }
