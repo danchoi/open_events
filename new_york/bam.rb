@@ -6,7 +6,7 @@ class Bam < EventScraper
     { 
       title: 'Brooklyn Academy of Music',
       url: 'http://bam.org/view.aspx?pid=6',
-      categories: %w(general-eventws),
+      categories: %w(general-events),
       locations: %w(brooklyn)
     }
   end
