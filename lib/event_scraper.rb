@@ -18,7 +18,8 @@ class EventScraper
     nodes.map {|n|
       @res << event(n)
     }
-    @res
+    
+    @res.delete_if { |x| x.nil? }
   end
 
   def parse_test
