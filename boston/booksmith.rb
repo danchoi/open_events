@@ -13,17 +13,14 @@ nodes {
 
 event {|n| 
   puts n.serialize
-  date = if (x = n.at('.entry-meta'))
-           x.inner_text
-         else
-           @res.last && @res.last[:date]
-         end
-  time = (x = n.at('li/text()')) && x.text.strip
-  link = n.at('.entry-title a')['href']
+  date = n.xpath('./td[2]/p[1]/text()[1]').text
+  link = n.at('a')['href']
+  title = n.at('strong').inner_text.strip
+  description = n.xpath('.//p[last()]').inner_text
   { 
     date: date,
-    time: time,
-    title: n.at('.entry-title').inner_text,
-    link: link 
+    title: title,
+    link: link,
+    description: description
   }
 }
