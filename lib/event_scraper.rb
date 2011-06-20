@@ -17,9 +17,13 @@ class EventScraper
     @node_finder ||= block
   end
 
-  def event(&block)
-    @event_parser ||= block
+  EVENT_ATTRS = %w( date link title description )
+  EVENT_ATTRS.each do |event_attr|
+    define_method event_attr.to_sym do |*args, &block|
+      instance_variable_set("@#{event_attr}_parser".to_sym, block) 
+    end
   end
+
 
   def html
     @html ||= open(info[:url]).read
@@ -34,7 +38,10 @@ class EventScraper
   end
 
   def parsed_event(n)
-    @event_parser.call n
+    EVENT_ATTRS.inject({}) do |memo, event_attr|
+      memo[event_attr] = instance_variable_get("@#{event_attr}_parser".to_sym).call(n)
+      memo
+    end
   end
 
   def parse

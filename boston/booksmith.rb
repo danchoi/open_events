@@ -9,16 +9,8 @@ nodes {
   map {|x| x.ancestors.detect {|y| y.name == 'tr'}}
 }
 
-event {|n| 
-  puts n.serialize
-  date = n.xpath('./td[2]/p[1]/text()[1]').text
-  link = n.at('a')['href']
-  title = n.at('strong').inner_text.strip
-  description = n.xpath('.//p[last()]').inner_text
-  { 
-    date: date,
-    title: title,
-    link: link,
-    description: description
-  }
-}
+date {|n| n.xpath('./td[2]/p[1]/text()[1]').text }
+link {|n| n.at('a')['href']}
+title {|n| n.at('strong').inner_text.strip}
+description {|n| n.xpath('.//p[last()]').inner_text}
+
