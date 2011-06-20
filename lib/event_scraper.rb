@@ -34,30 +34,20 @@ class EventScraper
   end
 
   def parsed_event(n)
-    event.call n
+    @event_parser.call n
   end
 
   def parse
     @doc = Nokogiri::HTML.parse(self.html)
     @res = []
-    parsed_nodes.map {|n|
-      @res << parsed_event(n)
-    }
-    @res.delete_if { |x| x.nil? }
+    parsed_nodes.map {|n| @res << parsed_event(n) }.compact
   end
 
-  def parse_test
-    parsed_nodes.each {|n|
-      puts n.inner_html
-      puts n.inner_text.gsub(/\s{2,}/, ' ').strip
-      puts '-' * 80
-    }
-  end
 end
 
 if __FILE__ == $0
   es = EventScraper.new ARGV.first
   puts es.info
-  es.parse_test
+  puts es.parse
 end
 

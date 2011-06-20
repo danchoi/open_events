@@ -3,7 +3,6 @@ info title: 'Brookline Booksmith',
      categories: %w(books speakers),
      locations: %w(coolidge-corner)
 
-
 nodes {
   doc.search('strong a').
   select {|x| 
@@ -13,7 +12,7 @@ nodes {
 }
 
 event {|n| 
-  return n.inner_html
+  puts n.serialize
   date = if (x = n.at('.entry-meta'))
            x.inner_text
          else
