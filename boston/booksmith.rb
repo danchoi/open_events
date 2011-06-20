@@ -4,11 +4,9 @@ info title: 'Brookline Booksmith',
      locations: %w(coolidge-corner)
 
 nodes {
-  doc.search('strong a').
-  select {|x| 
-    x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
-  map {|x| 
-    x.ancestors.detect {|y| y.name == 'tr'}}
+  doc.search('a').
+  select {|x| x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
+  map {|x| x.ancestors.detect {|y| y.name == 'tr'}}
 }
 
 event {|n| 
