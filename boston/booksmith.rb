@@ -9,7 +9,7 @@ nodes {
   map {|x| x.ancestors.detect {|y| y.name == 'tr'}}
 }
 
-date {|n| n.xpath('./td[2]/p[1]/text()[1]').text }
+date {|n| n.xpath('./td[2]/p[1]/text()[1]').text}
 link {|n| n.at('a')['href']}
 title {|n| n.at('strong').inner_text.strip}
 description {|n| n.xpath('.//p[last()]').inner_text}
