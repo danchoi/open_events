@@ -9,12 +9,14 @@ class EventScraper
     instance_eval code
   end
 
+  # dsl methods
+
   def info(values={})
     @info ||= values
   end
 
   def nodes(&block)
-    @node_finder ||= block
+    @node_finder = block
   end
 
   EVENT_ATTRS = %w( date link title description )
@@ -24,20 +26,16 @@ class EventScraper
     end
   end
 
+  # processing methods
 
-  def html
-    @html ||= open(info[:url]).read
+  def get_html
+    @html ||= open(info[:url], :proxy => nil).read
+  rescue
+    puts "error for #{info[:url]}"
+    puts $!
   end
 
-  def doc
-    @doc ||= Nokogiri::HTML.parse(html)
-  end
-
-  def parsed_nodes
-    @parsed_nodes ||= nodes.call
-  end
-
-  def parsed_event(n)
+  def parse_event(n)
     EVENT_ATTRS.inject({}) do |memo, event_attr|
       memo[event_attr] = instance_variable_get("@#{event_attr}_parser".to_sym).call(n)
       memo
@@ -45,9 +43,11 @@ class EventScraper
   end
 
   def parse
-    @doc = Nokogiri::HTML.parse(self.html)
+    @doc = Nokogiri::HTML.parse(get_html)
     @res = []
-    parsed_nodes.map {|n| @res << parsed_event(n) }.compact
+    @node_finder.call(@doc).map {|n| 
+      @res << parse_event(n) 
+    }.compact
   end
 
 end

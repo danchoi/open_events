@@ -3,7 +3,7 @@ info title: 'Brookline Booksmith',
      categories: %w(books speakers),
      locations: %w(coolidge-corner)
 
-nodes {
+nodes {|doc|
   doc.search('a').
   select {|x| x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
   map {|x| x.ancestors.detect {|y| y.name == 'tr'}}
