@@ -6,14 +6,14 @@ class EventScraper
 
   def initialize(path)
     code = File.read(path)
-    @v = instance_eval("{" + code + "}")
+    @v = instance_eval( code )
   end
 
   attr_reader :v
 
   def get_html
-    html = open(@v[:url], :proxy => nil).read
-    html.gsub(">" , "> ") # hack to make sure there are spaces separating words
+    @html = open(@v[:url], :proxy => nil).read
+    @html.gsub!(">" , "> ") # hack to make sure there are spaces separating words
   end
 
   def parse_event(n)
