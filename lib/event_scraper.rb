@@ -6,11 +6,7 @@ class EventScraper
 
   def initialize(path)
     code = File.read(path)
-    instance_eval code
-  end
-
-  def venue(values={})
-    @v ||= values
+    @v = instance_eval("{" + code + "}")
   end
 
   attr_reader :v
@@ -24,14 +20,15 @@ class EventScraper
 
   def parse_event(n)
     %w( date link title description ).inject({}) do |memo, field|
-      memo[field] = @v[field.to_sym].call(n)
+      memo[field] = @v[:events][field.to_sym].call(n)
       memo
     end
   end
 
   def parse
     @doc = Nokogiri::HTML.parse(get_html)
-    @v[:nodes][@doc].inject([]) {|m, n| 
+    puts @v.tainted?
+    @v[:events][:items].call(@doc).inject([]) {|m, n| 
       m << parse_event(n) 
     }.compact
   end
