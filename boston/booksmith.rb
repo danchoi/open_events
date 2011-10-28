@@ -11,5 +11,5 @@ events: {
   date: ->(x) { x.xpath('./td[2]/p[1]/text()[1]').text },
   link: ->(x) { x.at('a')['href'] },
   title: ->(x) { x.at('strong').inner_text.strip },
-  description: ->(x) { x.xpath('.//p[last()]').inner_text }
+  description: ->(x) { next ; x.xpath('.//p[last()]').inner_text }
 }

@@ -13,24 +13,26 @@ class EventScraper
 
   def get_html
     @html ||= open(@v[:url], :proxy => nil).read
-  rescue
-    puts "error for #{@v[:url]}"
-    puts $!
   end
 
   def parse_event(n)
     %w( date link title description ).inject({}) do |memo, field|
-      memo[field] = @v[:events][field.to_sym].call(n)
+      s = @v[:events][field.to_sym].call(n)
+      if s.is_a?(String)
+        s = s.gsub(/\s+/, ' ')
+      end
+      memo[field] = s
       memo
     end
   end
 
   def parse
     @doc = Nokogiri::HTML.parse(get_html)
-    puts @v.tainted?
-    @v[:events][:items].call(@doc).inject([]) {|m, n| 
-      m << parse_event(n) 
-    }.compact
+    @res = [] # may be used in a lambda
+    @v[:events][:items].call(@doc).each {|n| 
+      @res << parse_event(n) 
+    }
+    @res.compact
   end
 
 end
