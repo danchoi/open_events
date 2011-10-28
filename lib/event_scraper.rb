@@ -12,11 +12,12 @@ class EventScraper
   attr_reader :v
 
   def get_html
-    @html ||= open(@v[:url], :proxy => nil).read
+    html = open(@v[:url], :proxy => nil).read
+    html.gsub(">" , "> ") # hack to make sure there are spaces separating words
   end
 
   def parse_event(n)
-    %w( date link title description ).inject({}) do |memo, field|
+    %w( date link title ).inject({}) do |memo, field|
       s = @v[:events][field.to_sym].call(n)
       if s.is_a?(String)
         s = s.gsub(/\s+/, ' ')
