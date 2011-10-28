@@ -31,9 +31,8 @@ class EventScraper
 
   def parse
     @doc = Nokogiri::HTML.parse(get_html)
-    @res = []
-    @v[:nodes][@doc].map {|n| 
-      @res << parse_event(n) 
+    @v[:nodes][@doc].inject([]) {|m, n| 
+      m << parse_event(n) 
     }.compact
   end
 
