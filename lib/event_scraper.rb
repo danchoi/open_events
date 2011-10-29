@@ -28,7 +28,8 @@ class EventScraper
   end
 
   def parse
-    @doc = Nokogiri::HTML.parse @html
+    parser = @v[:format] == :xml ? Nokogiri::XML : Nokogiri::HTML
+    @doc = parser.parse @html
     @res = [] # may be used in a lambda
     @v[:nodes].call().each {|n| 
       @res << parse_event(n) 
