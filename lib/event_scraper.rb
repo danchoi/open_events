@@ -5,16 +5,16 @@ class EventScraper
   attr_accessor :doc
 
   def initialize(path)
-    code = File.read(path)
+    codelines = File.readlines(path)
+    @url = codelines.shift
+    @html = open(@url, :proxy => nil).read
+    @html.gsub!(">" , "> ") # hack to make sure there are spaces separating words
+    code = codelines.join("\n")
+    code = "$SAFE = 2 ; #{code}"
     @v = instance_eval( code )
   end
 
   attr_reader :v
-
-  def get_html
-    @html = open(@v[:url], :proxy => nil).read
-    @html.gsub!(">" , "> ") # hack to make sure there are spaces separating words
-  end
 
   def parse_event(n)
     %w( date link title ).inject({}) do |memo, field|
@@ -28,7 +28,7 @@ class EventScraper
   end
 
   def parse
-    @doc = Nokogiri::HTML.parse(get_html)
+    @doc = Nokogiri::HTML.parse @html
     @res = [] # may be used in a lambda
     @v[:events][:items].call(@doc).each {|n| 
       @res << parse_event(n) 

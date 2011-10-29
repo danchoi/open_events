@@ -1,6 +1,7 @@
+http://www.brooklinebooksmith.com/events/mainevent.html
+
 {
   title: 'Brookline Booksmith',
-  url: 'http://www.brooklinebooksmith.com/events/mainevent.html',
   categories: %w(books speakers),
   locations: %w(coolidge-corner),
   events: {

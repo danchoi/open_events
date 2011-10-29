@@ -1,6 +1,7 @@
+http://brattlefilm.org/category/calendar-2/special-events/
+
 {
   title: 'Brattle Theater Special Events',
-  url: 'http://brattlefilm.org/category/calendar-2/special-events/',
   categories: %w(movies),
   locations: %w(harvard-square),
   events: {
