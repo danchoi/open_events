@@ -2,7 +2,7 @@ http://microsoftcambridge.com/DesktopModules/SIG-NERD_Events/RSSFeed.ashx?link=h
 
 {
   format: :xml,
-  title: 'Micosoft NERD',
+  title: 'Microsoft NERD',
   categories: %w(tech software),
   locations: ['Kendall Square'],
   nodes: -> {
