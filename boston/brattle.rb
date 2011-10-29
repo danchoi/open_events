@@ -4,18 +4,16 @@ http://brattlefilm.org/category/calendar-2/special-events/
   title: 'Brattle Theater Special Events',
   categories: %w(movies),
   locations: %w(harvard-square),
-  events: {
-    items: ->(doc) { doc.at('#calendarframe').xpath('./div') },
-    date: ->(x) { if (x = x.at('.entry-meta'))
-        x.inner_text
-      else
-        @res.last && @res.last[:date]
-      end
-    },
-    title: ->(x) { x.at('.entry-title').inner_text },
-    link: ->(x) { x.at('.entry-title a')['href'] },
-    description: ->(x) {}
-  }
+  nodes: -> { @doc.at('#calendarframe').xpath('./div') },
+  date: ->(n) { if (n = n.at('.entry-meta'))
+      n.inner_text
+    else
+      @res.last && @res.last[:date]
+    end
+  },
+  title: ->(n) { n.at('.entry-title').inner_text },
+  link: ->(n) { n.at('.entry-title a')['href'] },
+  description: ->(n) {}
 }
 
 __END__

@@ -4,21 +4,19 @@ http://www.brooklinebooksmith.com/events/mainevent.html
   title: 'Brookline Booksmith',
   categories: %w(books speakers),
   locations: %w(coolidge-corner),
-  events: {
-    items: ->(doc) {
-      doc.search('a').
-      select {|x| x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
-      map {|x| x.ancestors.detect {|y| y.name == 'tr'}}
-    },
-    date: ->(x) { x.xpath('./td[2]/p[1]/text()[1]').text },
-    link: ->(x) { x.at('a')['href'] },
-    title: ->(x) { x.at('strong').inner_text.strip },
-    description: ->(x) { next ; x.xpath('.//p[last()]').inner_text }
-  }
+  nodes: -> {
+    @doc.search('a').
+    select {|x| x['href'] =~ %r{^http://www.brooklinebooksmith-shop.com/event/}}.
+    map {|x| x.ancestors.detect {|y| y.name == 'tr'}}
+  },
+  date: ->(n) { n.xpath('./td[2]/p[1]/text()[1]').text },
+  link: ->(n) { n.at('a')['href'] },
+  title: ->(n) { n.at('strong').inner_text.strip },
+  description: ->(n) { n.xpath('.//p[last()]').inner_text }
 }
 
-__END__
 
+__END__
 
 {"date"=>" Wednesday, October 26 at 6pm", "link"=>"http://www.brooklinebooksmith-shop.com/event/jeff-lindsay-double-dexter-tickets-required", "title"=>"Jeff Lindsay Double Dexter"}
 {"date"=>" Thursday, October 27th at 7pm", "link"=>"http://www.brooklinebooksmith-shop.com/event/jen-and-john-yates-wreck-halls-cake-wrecks-gets-festive", "title"=>"Jen and John Yates Wreck the Halls: Cake Wrecks Gets \"Festive\""}

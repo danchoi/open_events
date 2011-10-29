@@ -10,7 +10,7 @@ class EventScraper
     @html = open(@url, :proxy => nil).read
     @html.gsub!(">" , "> ") # hack to make sure there are spaces separating words
     code = codelines.join("\n")
-    code = "$SAFE = 2 ; #{code}"
+    code = "$SAFE = 2 ;  #{code} "
     @v = instance_eval( code )
   end
 
@@ -18,7 +18,7 @@ class EventScraper
 
   def parse_event(n)
     %w( date link title ).inject({}) do |memo, field|
-      s = @v[:events][field.to_sym].call(n)
+      s = @v[field.to_sym].call(n)
       if s.is_a?(String)
         s = s.gsub(/\s+/, ' ')
       end
@@ -30,7 +30,7 @@ class EventScraper
   def parse
     @doc = Nokogiri::HTML.parse @html
     @res = [] # may be used in a lambda
-    @v[:events][:items].call(@doc).each {|n| 
+    @v[:nodes].call().each {|n| 
       @res << parse_event(n) 
     }
     @res.compact
